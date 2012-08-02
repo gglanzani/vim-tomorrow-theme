@@ -4,18 +4,18 @@
 " Hex colour conversion functions borrowed from the theme "Desert256""
 
 " Default GUI Colours
-let s:foreground = "eaeaea"
+let s:foreground = "eeeeee"
 let s:background = "000000"
-let s:selection = "424242"
-let s:line = "2a2a2a"
-let s:comment = "969896"
-let s:red = "d54e53"
-let s:orange = "e78c45"
-let s:yellow = "e7c547"
-let s:green = "b9ca4a"
-let s:aqua = "70c0b1"
-let s:blue = "7aa6da"
-let s:purple = "c397d8"
+let s:selection = "545454"
+let s:line = "373737"
+let s:comment = "a7a8a7"
+let s:red = "dd6667"
+let s:orange = "eb9e5d"
+let s:yellow = "ebcd61"
+let s:green = "c5d064"
+let s:aqua = "74b2a9"
+let s:blue = "8eb7df"
+let s:purple = "c8a7d7"
 let s:window = "4d5057"
 
 set background=dark
@@ -235,7 +235,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	" Vim Highlighting
 	call <SID>X("Normal", s:foreground, s:background, "")
 	call <SID>X("LineNr", s:selection, "", "")
-	call <SID>X("NonText", s:selection, "", "")
+	call <SID>X("NonText", s:red, "", "")
 	call <SID>X("SpecialKey", s:selection, "", "")
 	call <SID>X("Search", s:background, s:yellow, "")
 	call <SID>X("TabLine", s:foreground, s:background, "reverse")
@@ -248,7 +248,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("MoreMsg", s:green, "", "")
 	call <SID>X("Question", s:green, "", "")
 	call <SID>X("WarningMsg", s:red, "", "")
-	call <SID>X("MatchParen", "", s:selection, "")
+	call <SID>X("MatchParen", "", s:yellow, "")
 	call <SID>X("Folded", s:comment, s:background, "")
 	call <SID>X("FoldColumn", "", s:background, "")
 	if version >= 700
@@ -279,7 +279,9 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("Type", s:blue, "", "none")
 	call <SID>X("Define", s:purple, "", "none")
 	call <SID>X("Include", s:blue, "", "")
-	"call <SID>X("Ignore", "666666", "", "")
+	call <SID>X("Keyword", s:green, "", "")
+	call <SID>X("Delimiter", s:green, "", "")
+	call <SID>X("Number", s:green, "", "")
 
 	" Vim Highlighting
 	call <SID>X("vimCommand", s:red, "", "none")
@@ -310,11 +312,24 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("rubyConditional", s:purple, "", "")
 	call <SID>X("rubyRepeat", s:purple, "", "")
 
+    " LaTeX Highlighting
+    call <SID>X("texStatement", s:green, "", "")
+    call <SID>X("texMathZoneX", s:red, "", "")
+    call <SID>X("texMathZoneA", s:red, "", "")
+    call <SID>X("texMathZoneB", s:red, "", "")
+    call <SID>X("texMathZoneC", s:red, "", "")
+    call <SID>X("texMathZoneD", s:red, "", "")
+    call <SID>X("texMathZoneE", s:red, "", "")
+    call <SID>X("texMath", s:red, "", "")
+    call <SID>X("texMathMatcher", s:orange, "", "")
+    call <SID>X("texRefLabel", s:yellow, "", "")
+    call <SID>X("texRefZone", s:purple, "", "")
+
 	" Python Highlighting
-	call <SID>X("pythonInclude", s:purple, "", "")
-	call <SID>X("pythonStatement", s:purple, "", "")
-	call <SID>X("pythonConditional", s:purple, "", "")
-	call <SID>X("pythonFunction", s:blue, "", "")
+	call <SID>X("pythonInclude", s:blue, "", "")
+	call <SID>X("pythonStatement", s:blue, "", "")
+	call <SID>X("pythonConditional", s:blue, "", "")
+	call <SID>X("pythonFunction", s:orange, "", "")
 
 	" JavaScript Highlighting
 	call <SID>X("javaScriptBraces", s:foreground, "", "")
